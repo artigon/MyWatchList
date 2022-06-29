@@ -70,7 +70,12 @@ public class contentSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //just for now
+                System.out.println("test1");
                 Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_contentFragment);
+//                MainActivity main = new MainActivity();
+//                main.moveToContentFragment();
+
+                System.out.println("test2");
             }
         });
 

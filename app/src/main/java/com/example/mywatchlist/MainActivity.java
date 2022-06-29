@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    public boolean test = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +48,18 @@ public class MainActivity extends AppCompatActivity {
         contentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                contentSearchFragment content = new contentSearchFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView,content).commit();
+                contentSearchFragment contentSearch = new contentSearchFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView,contentSearch).commit();
             }
         });
 
 
+    }
 
+    public void moveToContentFragment()
+    {
+        contentFragment content = new contentFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainerView,content).commit();
     }
 
 //    public void test()
