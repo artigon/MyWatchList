@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button homeBtn = findViewById(R.id.homeBtn);
         Button profileBtn = findViewById(R.id.profileBtn);
         Button socialBtn = findViewById(R.id.socialBtn);
-        Button contentBtn = findViewById(R.id.contentSearchBtn);
+        Button contentBtn = findViewById(R.id.contentContentSearchBtn);
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override

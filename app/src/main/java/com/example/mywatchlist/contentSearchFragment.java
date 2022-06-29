@@ -64,7 +64,7 @@ public class contentSearchFragment extends Fragment {
         // Inflate the layout for this fragment
 
 
-        Button searchBtn = view.findViewById(R.id.contentSearchBtn);
+        Button searchBtn = view.findViewById(R.id.contentContentSearchBtn);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,10 +72,6 @@ public class contentSearchFragment extends Fragment {
                 //just for now
                 System.out.println("test1");
                 Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_contentFragment);
-//                MainActivity main = new MainActivity();
-//                main.moveToContentFragment();
-
-                System.out.println("test2");
             }
         });
 
