@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".homeFragment">
+
+    <TextView
+        android:id="@+id/theTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#FFEB3B"
+        android:gravity="center"
+        android:text="My Watch List"
+        android:textSize="42dp" />
+
+    <LinearLayout
+        android:id="@+id/topMovies"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:background="#DA0A0A"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/topMovie1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="top\nmovie\n1"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/topMovie2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="top\nmovie\n2"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/topMovie3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="top\nmovie\n3"
+            android:textSize="40dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topShows"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:background="#2196F3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/topShow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="top\nShow\n1"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/topShow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="top\nShow\n2"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/topShow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="top\nShow\n3"
+            android:textSize="40dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

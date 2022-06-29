@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".contentSearchFragment" >
+
+    <TextView
+        android:id="@+id/contentSearchTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C4FF80"
+        android:gravity="center"
+        android:text="Content search"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/contentSearchAddNewContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add new content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFEB3B"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/contentSearchBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#C8C8C8"
+            android:ems="10"
+            android:hint="Search for content"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/contentSearchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="502dp">
+
+        <TextView
+            android:id="@+id/contentSearchData"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest" />
+    </ScrollView>
+
+</LinearLayout>

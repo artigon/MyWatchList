@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".contentFragment">
+
+    <LinearLayout
+        android:id="@+id/contentInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-1dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/contentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FFEB3B"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="name:"
+            android:textSize="28dp" />
+
+        <TextView
+            android:id="@+id/dateOfRelese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FFEB3B"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Date of relese:"
+            android:textSize="28dp" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FFEB3B"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Type:"
+            android:textSize="28dp" />
+
+        <TextView
+            android:id="@+id/numberOfLikes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#FFEB3B"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Number of likes"
+            android:textSize="28dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="436dp"
+        android:layout_marginTop="-500dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/contentDisciption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A9E1FA"
+            android:text="discription:"
+            android:textSize="20dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="15dp">
+
+            <TextView
+                android:id="@+id/discription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest"
+                android:textSize="24dp" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/contentPostsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A9E1FA"
+            android:text="Posts:"
+            android:textSize="20dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/contentPosts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest"
+                android:textSize="24dp" />
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
