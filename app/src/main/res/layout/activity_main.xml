@@ -9,46 +9,8 @@
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="644dp"
+        android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/navigation" />
 
-    <LinearLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/homeBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Go to\nHome"
-            android:textSize="12dp" />
-
-        <Button
-            android:id="@+id/profileBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="My\nProfile"
-            android:textSize="12dp" />
-
-        <Button
-            android:id="@+id/socialBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Search for\nPeople"
-            android:textSize="12dp" />
-
-        <Button
-            android:id="@+id/contentContentSearchBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Search for\nContent"
-            android:textSize="12dp" />
-    </LinearLayout>
 </LinearLayout>

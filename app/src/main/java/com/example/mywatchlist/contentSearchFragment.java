@@ -3,6 +3,7 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -60,18 +61,54 @@ public class contentSearchFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_content_search,container, false);
+        View view = inflater.inflate(R.layout.fragment_content_search, container, false);
         // Inflate the layout for this fragment
 
+        //footer buttons:
+        Button homeBtn = view.findViewById(R.id.contentSearchFooterHomeBtn);
+        Button profileBtn = view.findViewById(R.id.contentSearchFooterProfileBtn);
+        Button socialBtn = view.findViewById(R.id.contentSearchFooterSocialBtn);
+        Button contentBtn = view.findViewById(R.id.contentSearchFooterContentBtn);
 
-        Button searchBtn = view.findViewById(R.id.contentContentSearchBtn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_homeFragment);
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_userProfileFragment);
+            }
+        });
+
+        socialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_socialSearchFragment);
+            }
+        });
+
+        Button searchBtn = view.findViewById(R.id.theContentContentSearchBtn);
+        Button addContentBtn = view.findViewById(R.id.contentSearchAddNewContent);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //just for now
-                System.out.println("test1");
                 Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_contentFragment);
+
+            }
+        });
+
+        addContentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("test from content search");
+                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_addContentFragment);
+                System.out.println("test from content search 2");
             }
         });
 

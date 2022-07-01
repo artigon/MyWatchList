@@ -63,6 +63,42 @@ public class socialSearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_social_search,container, false);
         // Inflate the layout for this fragment
 
+        //footer buttons:
+        Button homeBtn = view.findViewById(R.id.socialSearchFooterHomeBtn);
+        Button profileBtn = view.findViewById(R.id.socialSearchFooterProfileBtn);
+        Button socialBtn = view.findViewById(R.id.socialSearchFooterSocialBtn);
+        Button contentBtn = view.findViewById(R.id.socialSearchFooterContentBtn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_homeFragment);
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
+            }
+        });
+
+        contentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
+            }
+        });
+
+
+        Button socialSearchBtn = view.findViewById(R.id.theSocialSearchBtn);
+
+        socialSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
+            }
+        });
 
 
 

@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addContentFragment">
+    android:orientation="vertical"
+    tools:context=".addContentFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/addContentTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="63dp"
+        android:background="#B2EF6C"
+        android:gravity="center"
+        android:text="Add Content"
+        android:textSize="40dp" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/addContentInfoInput"
+        android:layout_width="match_parent"
+        android:layout_height="547dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/addContentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00BCD4"
+            android:text="name:" />
+
+        <EditText
+            android:id="@+id/addContentNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#C8C8C8"
+            android:ems="10"
+            android:hint="input name here"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/addContentDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00BCD4"
+            android:text="Date of relese:" />
+
+        <EditText
+            android:id="@+id/addContentDateInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#C8C8C8"
+            android:ems="10"
+            android:hint="input Date of relese here"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/addContentType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00BCD4"
+            android:text="discription" />
+
+        <EditText
+            android:id="@+id/addContentTypeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#C8C8C8"
+            android:ems="10"
+            android:hint="Input discription here"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addContentButton"
+        android:layout_width="match_parent"
+        android:layout_height="118dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addContentCancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/addContentSubmitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Submit" />
+    </LinearLayout>
+
+</LinearLayout>
