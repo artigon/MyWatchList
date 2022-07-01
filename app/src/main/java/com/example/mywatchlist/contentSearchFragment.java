@@ -3,7 +3,6 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -93,7 +92,7 @@ public class contentSearchFragment extends Fragment {
         });
 
         Button searchBtn = view.findViewById(R.id.theContentContentSearchBtn);
-        Button addContentBtn = view.findViewById(R.id.contentSearchAddNewContent);
+        Button addContentBtn = view.findViewById(R.id.AddNewContentBtn);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,9 +105,11 @@ public class contentSearchFragment extends Fragment {
         addContentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("test from content search");
-                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_addContentFragment);
-                System.out.println("test from content search 2");
+                //not working, dont know why yet
+
+//                System.out.println("test from content search");
+//                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_addContentFragment);
+//                System.out.println("test from content search 2");
             }
         });
 
