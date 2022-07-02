@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,7 +64,39 @@ public class homeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home,container, false);
         // Inflate the layout for this fragment
 
+        Button homeBtn = view.findViewById(R.id.homeFooterHomeBtn);
+        Button profileBtn = view.findViewById(R.id.homeFooterProfileBtn);
+        Button socialBtn = view.findViewById(R.id.homeFooterSocialBtn);
+        Button contentBtn = view.findViewById(R.id.homeFooterContentBtn);
 
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_userProfileFragment);
+            }
+        });
+
+        socialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_socialSearchFragment);
+
+            }
+        });
+
+        contentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_contentSearchFragment);
+            }
+        });
 
 
         return view;

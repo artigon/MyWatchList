@@ -63,6 +63,31 @@ public class userProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_profile,container, false);
         // Inflate the layout for this fragment
 
+        Button homeBtn = view.findViewById(R.id.profleFooterHomeBtn);
+        Button profileBtn = view.findViewById(R.id.profileFooterProfileBtn);
+        Button socialbtn = view.findViewById(R.id.profileFooterSocialBtn);
+        Button contentBtn = view.findViewById(R.id.profileFooterContentBtn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_homeFragment);
+            }
+        });
+
+        socialbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_socialSearchFragment);
+            }
+        });
+
+        contentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_contentSearchFragment);
+            }
+        });
 
         return view;
     }
