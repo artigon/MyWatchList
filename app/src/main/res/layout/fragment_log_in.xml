@@ -19,48 +19,54 @@
         android:paddingBottom="5dp"
         android:layout_marginTop="20dp">
 
-
         <TextView
             android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="email:"
+            android:text="Email:"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/emailInput"
+            android:hint="Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FDF28B"
+            android:background="@drawable/edit_text_border"
             android:ems="10"
-            android:hint="user"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#4d4d4d"
+            />
 
         <TextView
             android:id="@+id/phoneNumText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="password:"
+            android:text="Password:"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/phoneNumInput"
+            android:hint="Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FDF28B"
+            android:background="@drawable/edit_text_border"
             android:ems="10"
-            android:hint="password"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#4d4d4d"
+            />
 
         <Button
             android:id="@+id/theLogIn"
             android:layout_width="match_parent"
-            android:layout_height="126dp"
+            android:layout_height="90dp"
             android:text="login"
-            android:layout_marginTop="100dp"
-            android:textSize="20sp" />
+            android:layout_marginTop="20dp"
+            android:textSize="30sp" />
 
     </LinearLayout>
+
 </LinearLayout>
