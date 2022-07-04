@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -87,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
                             mAuth.signInWithEmailAndPassword(email, password);
                             currentUser = mAuth.getCurrentUser();
                             users.child(tmp.getName()).setValue(tmp);
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
+                            currentUser.updateProfile(profileUpdates);
                         } else {
                             Toast.makeText(MainActivity.this, "Failed to register", Toast.LENGTH_LONG).show();
                         }
@@ -95,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    //Users/
     public void readFromData(int choice, String path) {
         DatabaseReference ref_Data = mData.child(path);
         ref_Data.addValueEventListener(new ValueEventListener() {

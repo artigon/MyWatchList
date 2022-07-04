@@ -24,8 +24,6 @@ public class userProfileFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
-    public String mainName;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -74,20 +72,10 @@ public class userProfileFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        TextView name = (TextView) view.findViewById(R.id.userName);
-        TextView mail = (TextView) view.findViewById(R.id.userMail);
-        TextView number = (TextView) view.findViewById(R.id.userPhoneNum);
+        MainActivity main = (MainActivity) getActivity();
+        System.out.println("test: " + currentUser.getDisplayName().toString());
+        main.readFromData(0,"Users/"+currentUser.getDisplayName().toString());
 
-        name.setText(currentUser.getDisplayName());
-        mail.setText(currentUser.getEmail());
-
-//        DatabaseReference ref_phone = mData.child(currentUser.getUid()).child("phone");
-//        ref_phone.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String phone_user = dataSnapshot.getValue(String.class);
-//                phone.setText(phone_user);
-//            }
 
 
 

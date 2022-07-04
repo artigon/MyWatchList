@@ -99,7 +99,7 @@ public class socialSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 MainActivity main = (MainActivity) getActivity();
-                main.readFromData(0,"Users/" + searchName);
+                //main.readFromData(0,"Users/" + searchName);
                 Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
             }
         });
