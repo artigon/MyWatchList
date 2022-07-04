@@ -62,7 +62,6 @@ public class homeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         // Inflate the layout for this fragment
 
-        final int[] test = {0};
 
         Button homeBtn = view.findViewById(R.id.homeFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.homeFooterProfileBtn);
@@ -80,6 +79,7 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_userProfileFragment);
+
             }
         });
 

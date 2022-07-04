@@ -63,12 +63,14 @@ public class registerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_register,container, false);
         // Inflate the layout for this fragment
 
+        MainActivity main = (MainActivity)getActivity();
+
         Button registerBtn = view.findViewById(R.id.theRegister);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_homeFragment);
+                main.registerFunc(view);
             }
         });
 

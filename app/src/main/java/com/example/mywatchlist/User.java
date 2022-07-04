@@ -21,7 +21,7 @@ public class User {
         this.number = "N/A";
     }
 
-    public void copyUser(User tmpUser){
+    public User(User tmpUser){
         setName(tmpUser.getName());
         setMail(tmpUser.getMail());
         setPassword(tmpUser.getPassword());

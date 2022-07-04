@@ -10,19 +10,26 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link userProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class userProfileFragment extends Fragment {
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+
+    public String mainName;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    TextView name;
-    TextView mail;
-    TextView number;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -64,12 +71,25 @@ public class userProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
         // Inflate the layout for this fragment
 
-        name = view.findViewById(R.id.userName);
-        mail = view.findViewById(R.id.userMail);
-        number = view.findViewById(R.id.userPhoneNum);
-        name.setText("");
-        mail.setText("");
-        number.setText("");
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
+        TextView name = (TextView) view.findViewById(R.id.userName);
+        TextView mail = (TextView) view.findViewById(R.id.userMail);
+        TextView number = (TextView) view.findViewById(R.id.userPhoneNum);
+
+        name.setText(currentUser.getDisplayName());
+        mail.setText(currentUser.getEmail());
+
+//        DatabaseReference ref_phone = mData.child(currentUser.getUid()).child("phone");
+//        ref_phone.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String phone_user = dataSnapshot.getValue(String.class);
+//                phone.setText(phone_user);
+//            }
+
+
 
         Button homeBtn = view.findViewById(R.id.profleFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.profileFooterProfileBtn);
@@ -97,24 +117,7 @@ public class userProfileFragment extends Fragment {
             }
         });
 
-
-        MainActivity main = new MainActivity();
-
-
-//        name.setText("Name: " + main.user.getName());
-//        mail.setText("Mail: " + main.user.getMail());
-//        number.setText("Phone number: " + main.user.getNumber());
-
-        main.setMainUser();
-
-
         return view;
-    }
-
-    public void setProfile(User tmp) {
-        name.setText("Name: " + tmp.getName());
-        mail.setText("Mail: " + tmp.getMail());
-        number.setText("Phone number: " + tmp.getNumber());
     }
 
 

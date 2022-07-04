@@ -68,7 +68,8 @@ public class logInFragment extends Fragment {
         logInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_logInFragment_to_homeFragment);
+                MainActivity main = (MainActivity) getActivity();
+                main.loginFunc(view);
             }
         });
 

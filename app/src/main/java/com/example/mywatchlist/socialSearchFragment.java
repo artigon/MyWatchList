@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -92,10 +93,13 @@ public class socialSearchFragment extends Fragment {
 
 
         Button socialSearchBtn = view.findViewById(R.id.theSocialSearchBtn);
+        String searchName = ((EditText)view.findViewById(R.id.socialSearchBar)).getText().toString();
 
         socialSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity main = (MainActivity) getActivity();
+                main.readFromData(0,"Users/" + searchName);
                 Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
             }
         });
