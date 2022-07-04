@@ -1,14 +1,14 @@
 package com.example.mywatchlist;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,12 +16,13 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class userProfileFragment extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    TextView name;
+    TextView mail;
+    TextView number;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -60,8 +61,15 @@ public class userProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_user_profile,container, false);
+        View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
         // Inflate the layout for this fragment
+
+        name = view.findViewById(R.id.userName);
+        mail = view.findViewById(R.id.userMail);
+        number = view.findViewById(R.id.userPhoneNum);
+        name.setText("");
+        mail.setText("");
+        number.setText("");
 
         Button homeBtn = view.findViewById(R.id.profleFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.profileFooterProfileBtn);
@@ -89,6 +97,25 @@ public class userProfileFragment extends Fragment {
             }
         });
 
+
+        MainActivity main = new MainActivity();
+
+
+//        name.setText("Name: " + main.user.getName());
+//        mail.setText("Mail: " + main.user.getMail());
+//        number.setText("Phone number: " + main.user.getNumber());
+
+        main.setMainUser();
+
+
         return view;
     }
+
+    public void setProfile(User tmp) {
+        name.setText("Name: " + tmp.getName());
+        mail.setText("Mail: " + tmp.getMail());
+        number.setText("Phone number: " + tmp.getNumber());
+    }
+
+
 }

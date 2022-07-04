@@ -1,21 +1,26 @@
 package com.example.mywatchlist;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static User user = new User();
+    public static User mainUser = new User("itay","itay@gmail.com","123456","0541234567");
+    public static User tmpUser = new User();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
     }
 
+    public void setMainUser()
+    {
+        userProfileFragment profile = new userProfileFragment();
+        profile.setProfile(mainUser);
+    }
 }
