@@ -106,8 +106,8 @@
             android:id="@+id/action_contentSearchFragment_to_socialSearchFragment"
             app:destination="@id/socialSearchFragment" />
         <action
-            android:id="@+id/action_contentSearchFragment_to_addContentFragment"
-            app:destination="@id/addContentFragment" />
+            android:id="@+id/action_contentSearchFragment_to_addContent"
+            app:destination="@id/addContent" />
     </fragment>
     <fragment
         android:id="@+id/socialSearchFragment"
@@ -125,12 +125,12 @@
             app:destination="@id/contentSearchFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addContentFragment"
-        android:name="com.example.mywatchlist.addContentFragment"
+        android:id="@+id/addContent"
+        android:name="com.example.mywatchlist.addContent"
         android:label="fragment_add_content"
         tools:layout="@layout/fragment_add_content" >
         <action
-            android:id="@+id/action_addContentFragment_to_contentSearchFragment"
+            android:id="@+id/action_addContent_to_contentSearchFragment"
             app:destination="@id/contentSearchFragment" />
     </fragment>
 </navigation>

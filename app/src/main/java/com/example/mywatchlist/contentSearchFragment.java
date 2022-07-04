@@ -67,7 +67,9 @@ public class contentSearchFragment extends Fragment {
         Button homeBtn = view.findViewById(R.id.contentSearchFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.contentSearchFooterProfileBtn);
         Button socialBtn = view.findViewById(R.id.contentSearchFooterSocialBtn);
-        Button contentBtn = view.findViewById(R.id.contentSearchFooterContentBtn);
+//        Button contentBtn = view.findViewById(R.id.contentSearchFooterContentBtn);
+        Button searchBtn = view.findViewById(R.id.theContentContentSearchBtn);
+        Button addContentBtn = (Button)view.findViewById(R.id.addNewContentBtn);
 
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
@@ -91,8 +93,7 @@ public class contentSearchFragment extends Fragment {
             }
         });
 
-        Button searchBtn = view.findViewById(R.id.theContentContentSearchBtn);
-        Button addContentBtn = view.findViewById(R.id.AddNewContentBtn);
+
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,11 +106,9 @@ public class contentSearchFragment extends Fragment {
         addContentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //not working, dont know why yet
-
-//                System.out.println("test from content search");
-//                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_addContentFragment);
-//                System.out.println("test from content search 2");
+                System.out.println("test from content search");
+                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_addContent);
+                System.out.println("test from content search 2");
             }
         });
 
