@@ -62,6 +62,7 @@ public class homeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         // Inflate the layout for this fragment
 
+        MainActivity main = (MainActivity) getActivity();
 
         Button homeBtn = view.findViewById(R.id.homeFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.homeFooterProfileBtn);
@@ -78,6 +79,8 @@ public class homeFragment extends Fragment {
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                main.getMyUserData();
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_userProfileFragment);
 
             }
@@ -86,6 +89,7 @@ public class homeFragment extends Fragment {
         socialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.voidSocialListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_socialSearchFragment);
 
             }

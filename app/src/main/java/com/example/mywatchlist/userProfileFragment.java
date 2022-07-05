@@ -69,12 +69,10 @@ public class userProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
         // Inflate the layout for this fragment
 
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
+//        mAuth = FirebaseAuth.getInstance();
+//        currentUser = mAuth.getCurrentUser();
 
-        MainActivity main = (MainActivity) getActivity();
-        System.out.println("test: " + currentUser.getDisplayName().toString());
-        main.readFromData(0,"Users/"+currentUser.getDisplayName().toString());
+
 
 
 
@@ -83,6 +81,14 @@ public class userProfileFragment extends Fragment {
         Button profileBtn = view.findViewById(R.id.profileFooterProfileBtn);
         Button socialbtn = view.findViewById(R.id.profileFooterSocialBtn);
         Button contentBtn = view.findViewById(R.id.profileFooterContentBtn);
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity main = (MainActivity) getActivity();
+                main.getMyUserData();
+            }
+        });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override

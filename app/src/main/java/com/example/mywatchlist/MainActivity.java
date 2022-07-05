@@ -23,13 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    public static User user = new User();
-    public static User mainUser;
-    public static User tmpUser = new User();
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseDatabase db;
     private DatabaseReference mData;
+    public String mainUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +38,14 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         mData = db.getReference();
 
-        mainUser = new User("itay", "itay@gmail.com", "123456", "0541234567");
 
 
     }
 
     public void loginFunc(View view) {
+
+        String userName = ((EditText) findViewById(R.id.logInUserInput)).getText().toString().trim();
+        mainUserName = userName;
 
         String email = ((EditText) findViewById(R.id.emailInput)).getText().toString().trim();
         String password = ((EditText) findViewById(R.id.passwordInput)).getText().toString().trim();
@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_LONG).show();
 
                             Navigation.findNavController(view).navigate(R.id.action_logInFragment_to_homeFragment);
+
+//                            getMyUserData();
 
                         } else {
                             Toast.makeText(MainActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
@@ -75,8 +77,9 @@ public class MainActivity extends AppCompatActivity {
         String phone = ((EditText) findViewById(R.id.registePhoneNumInput)).getText().toString().trim();
         String username = ((EditText) findViewById(R.id.registerUserInput)).getText().toString().trim();
         users.push().get();
+        mainUserName = username;
 
-        User tmp = new User(username, email, password, phone);
+        User tmpUser = new User(username, email, password, phone);
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                             Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_homeFragment);
                             mAuth.signInWithEmailAndPassword(email, password);
                             currentUser = mAuth.getCurrentUser();
-                            users.child(tmp.getName()).setValue(tmp);
+                            users.child(tmpUser.getName()).setValue(tmpUser);
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
                             currentUser.updateProfile(profileUpdates);
                         } else {
@@ -98,39 +101,107 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    public void readFromData(int choice, String path) {
-        DatabaseReference ref_Data = mData.child(path);
-        ref_Data.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (choice == 0) {
-                    User user = dataSnapshot.getValue(User.class);
-                    View view = getLayoutInflater().inflate(R.layout.fragment_user_profile, null);
-                    TextView name = (TextView) view.findViewById(R.id.userName);
-                    TextView mail = (TextView) view.findViewById(R.id.userMail);
-                    TextView number = (TextView) view.findViewById(R.id.userPhoneNum);
-                    name.setText("Name: " + user.getName());
-                    mail.setText("Mail: " + user.getMail());
-                    number.setText("Phone number: " + user.getNumber());
-                } else if (choice == 1) {
-                    //object content here
-                    View view = getLayoutInflater().inflate(R.layout.fragment_content, null);
-                }
-            }
+    public void voidSocialListUpdater(){
+//        StringBuffer userList = new StringBuffer();
+//        DatabaseReference Users_ref_Data = db.getReference("Users");
+//        Users_ref_Data.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                for(DataSnapshot snap : dataSnapshot.getChildren())
+//                {
+//                    userList.append(snap.getValue(User.class).getName() + "\n");
+//                }
+//                TextView list = (TextView) findViewById(R.id.socialUserList);
+//                list.setText(userList.toString());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+    }
 
+    public void readFromData() {
+        DatabaseReference Users_ref_Data = db.getReference("Users");
+        DatabaseReference Content_ref_Data = db.getReference("Content");
+
+        String searchName = ((EditText) findViewById(R.id.socialSearchBar)).getText().toString().trim();
+
+
+        Users_ref_Data.child(searchName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                DataSnapshot dataSnapshot = task.getResult();
+                User user = new User(dataSnapshot.getValue(User.class));
+
+                if (task.isSuccessful()) {
+
+                    if (task.getResult().exists()) {
+                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_SHORT).show();
+                        TextView name = (TextView) findViewById(R.id.userName);
+                        TextView mail = (TextView) findViewById(R.id.userMail);
+                        TextView number = (TextView) findViewById(R.id.userPhoneNum);
+                        name.setText("Name: " + user.getName());
+                        mail.setText("Mail: " + user.getMail());
+                        number.setText("Phone number: " + user.getNumber());
+
+
+                    } else {
+
+                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                } else {
+
+                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
+
     }
 
-//    public void setMainUser() {
-//        //Fragment frag = getFragmentManager().findFragmentById(R.id.userProfileFragment);
-//        userProfileFragment fragment_obj = (userProfileFragment) getSupportFragmentManager().
-//                findFragmentById(R.id.userProfileFragment);
-//        ((TextView) fragment_obj.getView().findViewById(R.id.userName)).setText(currentUser.getName());
-//        ((TextView) fragment_obj.getView().findViewById(R.id.userMail)).setText(mainUser.getMail());
-//        ((TextView) fragment_obj.getView().findViewById(R.id.userPhoneNum)).setText(mainUser.getNumber());
-//    }
+
+    public void getMyUserData() {
+        DatabaseReference Users_ref_Data = db.getReference("Users");
+        Users_ref_Data.child(mainUserName.toString()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                DataSnapshot dataSnapshot = task.getResult();
+                User user = new User(dataSnapshot.getValue(User.class));
+
+                if (task.isSuccessful()) {
+
+                    if (task.getResult().exists()) {
+                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_SHORT).show();
+                        TextView name = ((TextView) findViewById(R.id.userName));
+                        TextView mail = ((TextView) findViewById(R.id.userMail));
+                        TextView number = ((TextView) findViewById(R.id.userPhoneNum));
+                        name.setText("Name: " + user.getName());
+                        mail.setText("Mail: " + user.getMail());
+                        number.setText("Phone number: " + user.getNumber());
+
+
+                    } else {
+
+                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
+
+                    }
+
+
+                } else {
+
+                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+    }
+
 }

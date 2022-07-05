@@ -20,6 +20,25 @@
         android:layout_marginTop="20dp">
 
         <TextView
+            android:id="@+id/logInUserText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/logInUserInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:ems="10"
+            android:hint="User"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#4d4d4d" />
+
+        <TextView
             android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
