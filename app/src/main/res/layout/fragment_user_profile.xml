@@ -10,10 +10,11 @@
         android:id="@+id/profileTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#8BC34A"
+        android:background="@color/white"
         android:gravity="center"
         android:text="Profile"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:textColor="@color/orange_500"/>
 
     <LinearLayout
         android:id="@+id/useInfo"
@@ -22,29 +23,32 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/userName"
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#FFEB3B"
+            android:background="@color/white"
+            android:textStyle="italic"
             android:text="Name: "
             android:textSize="28dp" />
 
         <TextView
-            android:id="@+id/userMail"
+            android:id="@+id/mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#FFEB3B"
+            android:background="@color/white"
+            android:textStyle="italic"
             android:text="Mail: "
             android:textSize="28dp" />
 
         <TextView
-            android:id="@+id/userPhoneNum"
+            android:id="@+id/phoneNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#FFEB3B"
+            android:background="@color/white"
+            android:textStyle="italic"
             android:text="Phone Number:"
             android:textSize="28dp" />
 
@@ -86,21 +90,23 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="348dp">
+        android:layout_height="252dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_text_border">
 
         <TextView
             android:id="@+id/contentListOrPostList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest"
-            android:textSize="30dp" />
+            android:textSize="20dp" />
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/profileFooter"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="95dp"
         android:orientation="horizontal">
 
         <Button
@@ -108,30 +114,74 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="home" />
+            android:text="Home"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_home"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false"
+
+            />
 
         <Button
             android:id="@+id/profileFooterProfileBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#000000"
-            android:text="profile"
-            android:textColor="#ff9900" />
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:drawableTop="@drawable/icon_profile_in_page"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/profileFooterSocialBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="social" />
+            android:text="Social"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_social"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/profileFooterContentBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="content" />
+            android:text="Content"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="15sp"
+            android:paddingTop="1dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </LinearLayout>

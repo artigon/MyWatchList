@@ -8,10 +8,8 @@
         <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_content.xml" value="0.12771739130434784" />
         <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_content_search.xml" value="0.17028985507246377" />
         <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_home.xml" value="0.151268115942029" />
-        <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_log_in.xml" value="0.16983695652173914" />
-        <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_register.xml" value="0.16983695652173914" />
         <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_social_search.xml" value="0.151268115942029" />
-        <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_user_profile.xml" value="0.15625" />
+        <entry key="..\:/GitHub/MyWatchList/app/src/main/res/layout/fragment_user_profile.xml" value="0.1" />
         <entry key="..\:/Users/itayb/AndroidStudioProjects/MyWatchList/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/itayb/AndroidStudioProjects/MyWatchList/app/src/main/res/layout/fragment_add_content.xml" value="0.14266304347826086" />
         <entry key="..\:/Users/itayb/AndroidStudioProjects/MyWatchList/app/src/main/res/layout/fragment_content.xml" value="0.16666666666666666" />
@@ -27,20 +25,30 @@
         <entry key="..\:/Users/itayb/AndroidStudioProjects/MyWatchList/app/src/main/res/layout/fragment_user_profile.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/itayb/AndroidStudioProjects/MyWatchList/app/src/main/res/layout/fragment_user_profile_fragment.xml" value="0.12635869565217392" />
         <entry key="..\:/Users/itayb/AndroidStudioProjects/MyWatchList/app/src/main/res/layout/log_in_register_fragemnt_fragment.xml" value="0.12635869565217392" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.289" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/button_style.xml" value="0.1615" />
         <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/edit_text_border.xml" value="0.2" />
         <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/editor_button_border.xml" value="0.2385" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.289" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_content.xml" value="0.1225" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_content_in_page.xml" value="0.192" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_home.xml" value="0.138" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_home_page.xml" value="0.1135" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_like.xml" value="0.1605" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_profile.xml" value="0.1535" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_profile_in_page.xml" value="0.1615" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_social.xml" value="0.1" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/drawable/icon_social_in_page.xml" value="0.1335" />
         <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_add_content.xml" value="0.18" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_content.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_content_search.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_home.xml" value="0.20572916666666666" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_log_in.xml" value="0.22" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_register.xml" value="0.18" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_social_search.xml" value="0.20729166666666668" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_start.xml" value="0.2" />
-        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_user_profile.xml" value="0.18" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_add_content.xml" value="0.33" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_content.xml" value="0.33" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_content_search.xml" value="0.25" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_log_in.xml" value="0.33" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_social_search.xml" value="0.1" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_start.xml" value="0.22" />
+        <entry key="..\:/Users/micha/Documents/GitHub/MyWatchList/app/src/main/res/layout/fragment_user_profile.xml" value="0.25" />
       </map>
     </option>
   </component>
