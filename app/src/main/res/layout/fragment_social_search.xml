@@ -10,51 +10,62 @@
         android:id="@+id/socialSearchTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#AFFF52"
+        android:background="@color/white"
         android:gravity="center"
         android:text="Social"
+        android:textColor="@color/orange_500"
         android:textSize="40dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/socialSearchBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#D5D5D5"
-            android:ems="10"
             android:hint="Search for people:"
+            android:background="@drawable/edit_text_border"
+            android:ems="13"
+            android:layout_margin="5dp"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#4d4d4d" />
 
         <Button
             android:id="@+id/theSocialSearchBtn"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/button_style"
             android:text="Search" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="523dp">
+        android:layout_height="399dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_text_border">
 
         <TextView
             android:id="@+id/socialUserList"
             android:inputType="textMultiLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest" />
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/socialSearchFooter"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="95dp"
         android:orientation="horizontal">
 
         <Button
@@ -62,28 +73,74 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="home" />
+            android:text="Home"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_home"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false"
+
+            />
 
         <Button
             android:id="@+id/socialSearchFooterProfileBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="profile" />
+            android:text="Profile"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_profile"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/socialSearchFooterSocialBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="social" />
+            android:text="Social"
+            android:textColor="@color/black"
+            android:drawableTop="@drawable/icon_social_in_page"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/socialSearchFooterContentBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="content" />
+            android:text="Content"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="15sp"
+            android:paddingTop="1dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </LinearLayout>

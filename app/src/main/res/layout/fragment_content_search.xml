@@ -8,59 +8,75 @@
 
     <TextView
         android:id="@+id/contentSearchTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#C4FF80"
-        android:gravity="center"
         android:text="Content search"
-        android:textSize="30dp" />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="@color/orange_500" />
 
     <Button
         android:id="@+id/addNewContentBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add new content" />
+        android:layout_margin="5dp"
+        android:text="Add new content"
+        android:textColor="@color/white"
+        android:background="@drawable/button_style"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFEB3B"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/contentSearchBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#C8C8C8"
-            android:ems="10"
             android:hint="Search for content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/edit_text_border"
+            android:ems="13"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#4d4d4d"
+            />
+
+            />
 
         <Button
             android:id="@+id/theContentContentSearchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:background="@drawable/button_style"
             android:text="Search" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="502dp">
+        android:layout_height="350dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/edit_text_border">
 
         <TextView
             android:id="@+id/contentList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingLeft="10dp"
             android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntesttest\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest" />
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/contentSearchlSearchFooter"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="95dp"
         android:orientation="horizontal">
 
         <Button
@@ -68,28 +84,74 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="home" />
+            android:text="Home"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_home"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false"
+
+            />
 
         <Button
             android:id="@+id/contentSearchFooterProfileBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="profile" />
+            android:text="Profile"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_profile"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/contentSearchFooterSocialBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="social" />
+            android:text="Social"
+            android:textColor="@color/white"
+            android:drawableTop="@drawable/icon_social"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="17sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/contentSearchFooterContentBtn"
+            android:id="@+id/theContentContentSearchBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="content" />
+            android:text="Content"
+            android:textColor="@color/black"
+            android:drawableTop="@drawable/icon_content_in_page"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_style"
+            android:textSize="15sp"
+            android:paddingTop="1dp"
+            android:paddingBottom="20dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:focusable="true"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </LinearLayout>
