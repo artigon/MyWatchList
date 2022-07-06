@@ -13,7 +13,7 @@
         android:background="@color/white"
         android:gravity="center"
         android:text="Content"
-        android:textColor="@color/orange_500"
+        android:textColor="#EF6C00"
         android:textSize="40dp" />
 
     <LinearLayout
@@ -36,7 +36,7 @@
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/dateOfRelese"
+            android:id="@+id/contentDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"

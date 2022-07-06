@@ -14,8 +14,8 @@
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:gravity="center"
-        android:textColor="@color/orange_500"
         android:text="My Watch List"
+        android:textColor="#EF6C00"
         android:textSize="42dp" />
 
     <LinearLayout

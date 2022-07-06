@@ -13,8 +13,8 @@
         android:background="@color/white"
         android:gravity="center"
         android:text="Profile"
-        android:textSize="40dp"
-        android:textColor="@color/orange_500"/>
+        android:textColor="#EF6C00"
+        android:textSize="40dp" />
 
     <LinearLayout
         android:id="@+id/useInfo"
@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/profileName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -33,7 +33,7 @@
             android:textSize="28dp" />
 
         <TextView
-            android:id="@+id/mail"
+            android:id="@+id/profileEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -43,7 +43,7 @@
             android:textSize="28dp" />
 
         <TextView
-            android:id="@+id/phoneNum"
+            android:id="@+id/profilePhoneNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

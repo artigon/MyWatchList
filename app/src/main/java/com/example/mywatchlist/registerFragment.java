@@ -3,7 +3,6 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +64,7 @@ public class registerFragment extends Fragment {
 
         MainActivity main = (MainActivity)getActivity();
 
-        Button registerBtn = view.findViewById(R.id.theRegister);
+        Button registerBtn = view.findViewById(R.id.registerBtn);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override

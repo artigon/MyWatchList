@@ -7,13 +7,13 @@
     tools:context=".socialSearchFragment" >
 
     <TextView
-        android:id="@+id/socialSearchTitle"
+        android:id="@+id/registerTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:gravity="center"
         android:text="Social"
-        android:textColor="@color/orange_500"
+        android:textColor="#EF6C00"
         android:textSize="40dp" />
 
     <LinearLayout

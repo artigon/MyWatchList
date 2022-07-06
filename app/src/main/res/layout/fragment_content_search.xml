@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/contentSearchTitle"
-        android:text="Content search"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#ffffff"
         android:gravity="center"
-        android:textSize="30dp"
-        android:textColor="@color/orange_500" />
+        android:text="Content search"
+        android:textColor="#EF6C00"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/addNewContentBtn"
@@ -48,7 +48,7 @@
             />
 
         <Button
-            android:id="@+id/theContentContentSearchBtn"
+            android:id="@+id/contentSearchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -57,6 +57,7 @@
             android:textSize="20dp"
             android:background="@drawable/button_style"
             android:text="Search" />
+
     </LinearLayout>
 
     <ScrollView
@@ -136,7 +137,7 @@
             android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/theContentContentSearchBtn"
+            android:id="@+id/contentSearchFooterContentBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

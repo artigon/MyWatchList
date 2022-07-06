@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -118,11 +117,11 @@ public class MainActivity extends AppCompatActivity {
                     if (task.getResult().exists()) {
 
 //                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
-                        TextView name = ((TextView) findViewById(R.id.userName));
-                        TextView mail = ((TextView) findViewById(R.id.userMail));
-                        TextView number = ((TextView) findViewById(R.id.userPhoneNum));
+                        TextView name = ((TextView) findViewById(R.id.profileName));
+                        TextView email = ((TextView) findViewById(R.id.profileEmail));
+                        TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
                         name.setText("Name: " + user.getName());
-                        mail.setText("Mail: " + user.getMail());
+                        email.setText("Mail: " + user.getMail());
                         number.setText("Phone number: " + user.getNumber());
 
 
@@ -161,11 +160,11 @@ public class MainActivity extends AppCompatActivity {
                     if (task.getResult().exists()) {
 //                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
                         TextView conetntName = ((TextView) findViewById(R.id.contentName));
-                        TextView contentDate = ((TextView) findViewById(R.id.dateOfRelese));
+                        TextView contentDate = ((TextView) findViewById(R.id.contentDate));
                         TextView contentType = ((TextView) findViewById(R.id.type));
                         TextView contentNumLikes = ((TextView) findViewById(R.id.numberOfLikes));
                         TextView contentDescription = ((TextView) findViewById(R.id.conetntDiscription));
-                        TextView contentPosts = ((TextView) findViewById(R.id.contentPosts));
+//                        TextView contentPosts = ((TextView) findViewById(R.id.contentPosts));
                         conetntName.setText("Name: " + content.getName());
                         contentDate.setText("Date of relese: " + content.getDateOfRelese());
                         contentType.setText("Type: " + content.getType());
@@ -205,11 +204,11 @@ public class MainActivity extends AppCompatActivity {
 
                     if (task.getResult().exists()) {
 //                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
-                        TextView name = ((TextView) findViewById(R.id.userName));
-                        TextView mail = ((TextView) findViewById(R.id.userMail));
-                        TextView number = ((TextView) findViewById(R.id.userPhoneNum));
+                        TextView name = ((TextView) findViewById(R.id.profileName));
+                        TextView email = ((TextView) findViewById(R.id.profileEmail));
+                        TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
                         name.setText("Name: " + user.getName());
-                        mail.setText("Mail: " + user.getMail());
+                        email.setText("Mail: " + user.getMail());
                         number.setText("Phone number: " + user.getNumber());
 
 
@@ -258,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
 
         String contentName = ((EditText) findViewById(R.id.addContentNameInput)).getText().toString().trim();
         String contentDate = ((EditText) findViewById(R.id.addContentDateInput)).getText().toString().trim();
-        String contentType = ((EditText) findViewById(R.id.addContentTypeInput)).getText().toString().trim();
+        String contentType = ((EditText) findViewById(R.id.addContentDiscriptionInput)).getText().toString().trim();
         String contentDiscription = ((EditText) findViewById(R.id.addContentDiscriptionInput)).getText().toString().trim();
 
         Content newContent = new Content(contentName, contentDate, contentType, contentDiscription);

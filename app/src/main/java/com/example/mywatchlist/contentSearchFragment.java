@@ -69,8 +69,7 @@ public class contentSearchFragment extends Fragment {
         Button homeBtn = view.findViewById(R.id.contentSearchFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.contentSearchFooterProfileBtn);
         Button socialBtn = view.findViewById(R.id.contentSearchFooterSocialBtn);
-//        Button contentBtn = view.findViewById(R.id.contentSearchFooterContentBtn);
-        Button searchBtn = view.findViewById(R.id.theContentContentSearchBtn);
+        Button searchBtn = view.findViewById(R.id.contentSearchBtn);
         Button addContentBtn = (Button)view.findViewById(R.id.addNewContentBtn);
 
 

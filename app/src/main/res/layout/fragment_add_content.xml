@@ -74,7 +74,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/addContentTypeInput"
+            android:id="@+id/addContentDiscriptionInput"
             android:layout_width="match_parent"
             android:layout_height="173dp"
             android:background="@drawable/edit_text_border"
