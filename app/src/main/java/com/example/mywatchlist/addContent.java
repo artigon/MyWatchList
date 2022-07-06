@@ -64,10 +64,20 @@ public class addContent extends Fragment {
         // Inflate the layout for this fragment
 
         Button cancelBtn = view.findViewById(R.id.addContentCancel);
+        Button submitBtn = view.findViewById(R.id.addContentSubmitBtn);
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_addContent_to_contentSearchFragment);
+            }
+        });
+
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity main = (MainActivity) getActivity();
+                main.addContent();
                 Navigation.findNavController(view).navigate(R.id.action_addContent_to_contentSearchFragment);
             }
         });

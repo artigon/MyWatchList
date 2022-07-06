@@ -8,7 +8,8 @@ public class Content {
     private String type;
     private int numOfLikes;
     private String disciption;
-    private Vector<User> usersThatLiked = new Vector<User>();
+    private Vector<String> usersThatLiked;
+    private Vector<String> posts;
     //put here vector for posts
 
 
@@ -16,8 +17,32 @@ public class Content {
         this.name = name;
         this.dateOfRelese = dateOfRelese;
         this.type = type;
-        this.numOfLikes = usersThatLiked.size();
+        this.numOfLikes = 0;
         this.disciption = disciption;
+        this.usersThatLiked = new Vector<String>();
+        this.posts = new Vector<String>();
+    }
+
+    public Content(){};
+
+    public Content(Content tmpContent){
+        this.name = tmpContent.getName();
+        this.dateOfRelese = tmpContent.getDateOfRelese();
+        this.type = tmpContent.getType();
+        this.numOfLikes = tmpContent.getNumOfLikes();
+        this.disciption = tmpContent.getDisciption();
+        this.usersThatLiked = tmpContent.getUsersThatLiked();
+        this.posts = tmpContent.getPosts();
+//        for(int i = 0; i < tmpContent.getUsersThatLiked().size(); i++)
+//            this.usersThatLiked.elementAt(i) = tmpContent.getUsersThatLiked().elementAt(i);
+    }
+
+    public Vector<String> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Vector<String> posts) {
+        this.posts = posts;
     }
 
     public String getName() {
@@ -60,15 +85,15 @@ public class Content {
         this.disciption = disciption;
     }
 
-    public Vector<User> getUsersThatLiked() {
+    public Vector<String> getUsersThatLiked() {
         return usersThatLiked;
     }
 
-    public void setUsersThatLiked(Vector<User> usersThatLiked) {
+    public void setUsersThatLiked(Vector<String> usersThatLiked) {
         this.usersThatLiked = usersThatLiked;
     }
 
-    public void addUserThatLiked(User user){
-        this.usersThatLiked.add(user);
+    public void addUserThatLiked(String tmpName){
+        this.usersThatLiked.add(tmpName);
     }
 }

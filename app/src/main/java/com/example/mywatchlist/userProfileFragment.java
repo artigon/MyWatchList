@@ -73,6 +73,8 @@ public class userProfileFragment extends Fragment {
 //        currentUser = mAuth.getCurrentUser();
 
 
+        MainActivity main = (MainActivity)getActivity();
+
 
 
 
@@ -100,6 +102,7 @@ public class userProfileFragment extends Fragment {
         socialbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.socialListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_socialSearchFragment);
             }
         });
@@ -107,6 +110,7 @@ public class userProfileFragment extends Fragment {
         contentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.contentListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_contentSearchFragment);
             }
         });

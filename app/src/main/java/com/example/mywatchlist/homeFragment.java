@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
  */
 public class homeFragment extends Fragment {
 
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,6 +65,10 @@ public class homeFragment extends Fragment {
 
         MainActivity main = (MainActivity) getActivity();
 
+
+
+
+
         Button homeBtn = view.findViewById(R.id.homeFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.homeFooterProfileBtn);
         Button socialBtn = view.findViewById(R.id.homeFooterSocialBtn);
@@ -89,15 +94,15 @@ public class homeFragment extends Fragment {
         socialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                main.voidSocialListUpdater();
+                main.socialListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_socialSearchFragment);
-
             }
         });
 
         contentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.contentListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_contentSearchFragment);
             }
         });

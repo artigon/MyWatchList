@@ -102,7 +102,7 @@
             android:layout_marginBottom="15dp">
 
             <TextView
-                android:id="@+id/discription"
+                android:id="@+id/conetntDiscription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest"

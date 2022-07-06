@@ -23,11 +23,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+    public String mainUserName;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseDatabase db;
     private DatabaseReference mData;
-    public String mainUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         mData = db.getReference();
-
 
 
     }
@@ -55,14 +54,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_LONG).show();
 
                             Navigation.findNavController(view).navigate(R.id.action_logInFragment_to_homeFragment);
 
-//                            getMyUserData();
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(MainActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -86,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Registered Successful", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(MainActivity.this, "Registered Successful", Toast.LENGTH_LONG).show();
                             Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_homeFragment);
                             mAuth.signInWithEmailAndPassword(email, password);
                             currentUser = mAuth.getCurrentUser();
@@ -94,38 +92,16 @@ public class MainActivity extends AppCompatActivity {
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
                             currentUser.updateProfile(profileUpdates);
                         } else {
-                            Toast.makeText(MainActivity.this, "Failed to register", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(MainActivity.this, "Failed to register", Toast.LENGTH_LONG).show();
                         }
 
                     }
                 });
     }
 
-    public void voidSocialListUpdater(){
-//        StringBuffer userList = new StringBuffer();
-//        DatabaseReference Users_ref_Data = db.getReference("Users");
-//        Users_ref_Data.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                for(DataSnapshot snap : dataSnapshot.getChildren())
-//                {
-//                    userList.append(snap.getValue(User.class).getName() + "\n");
-//                }
-//                TextView list = (TextView) findViewById(R.id.socialUserList);
-//                list.setText(userList.toString());
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-    }
-
-    public void readFromData() {
+    public void readUsersFromData() {
         DatabaseReference Users_ref_Data = db.getReference("Users");
-        DatabaseReference Content_ref_Data = db.getReference("Content");
+
 
         String searchName = ((EditText) findViewById(R.id.socialSearchBar)).getText().toString().trim();
 
@@ -140,10 +116,11 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     if (task.getResult().exists()) {
-                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_SHORT).show();
-                        TextView name = (TextView) findViewById(R.id.userName);
-                        TextView mail = (TextView) findViewById(R.id.userMail);
-                        TextView number = (TextView) findViewById(R.id.userPhoneNum);
+
+//                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
+                        TextView name = ((TextView) findViewById(R.id.userName));
+                        TextView mail = ((TextView) findViewById(R.id.userMail));
+                        TextView number = ((TextView) findViewById(R.id.userPhoneNum));
                         name.setText("Name: " + user.getName());
                         mail.setText("Mail: " + user.getMail());
                         number.setText("Phone number: " + user.getNumber());
@@ -151,14 +128,62 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
 
-                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_LONG).show();
 
                     }
 
 
                 } else {
 
-                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+
+    }
+
+    public void readContentFromData() {
+        DatabaseReference Content_ref_Data = db.getReference("Content");
+
+        String searchContentName = ((EditText) findViewById(R.id.contentSearchBar)).getText().toString().trim();
+
+        Content_ref_Data.child(searchContentName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                DataSnapshot dataSnapshot = task.getResult();
+                Content content = new Content(dataSnapshot.getValue(Content.class));
+
+                if (task.isSuccessful()) {
+
+                    if (task.getResult().exists()) {
+//                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
+                        TextView conetntName = ((TextView) findViewById(R.id.contentName));
+                        TextView contentDate = ((TextView) findViewById(R.id.dateOfRelese));
+                        TextView contentType = ((TextView) findViewById(R.id.type));
+                        TextView contentNumLikes = ((TextView) findViewById(R.id.numberOfLikes));
+                        TextView contentDescription = ((TextView) findViewById(R.id.conetntDiscription));
+                        TextView contentPosts = ((TextView) findViewById(R.id.contentPosts));
+                        conetntName.setText("Name: " + content.getName());
+                        contentDate.setText("Date of relese: " + content.getDateOfRelese());
+                        contentType.setText("Type: " + content.getType());
+                        contentNumLikes.setText("Number of likes: " + content.getNumOfLikes());
+                        contentDescription.setText(content.getDisciption());
+                        //contentPosts.setText((CharSequence) content.getPosts());
+
+
+                    } else {
+
+//                        Toast.makeText(MainActivity.this, "Content Doesn't Exist", Toast.LENGTH_LONG).show();
+
+                    }
+
+
+                } else {
+
+//                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -179,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     if (task.getResult().exists()) {
-                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
                         TextView name = ((TextView) findViewById(R.id.userName));
                         TextView mail = ((TextView) findViewById(R.id.userMail));
                         TextView number = ((TextView) findViewById(R.id.userPhoneNum));
@@ -190,14 +215,14 @@ public class MainActivity extends AppCompatActivity {
 
                     } else {
 
-                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_LONG).show();
 
                     }
 
 
                 } else {
 
-                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -205,4 +230,64 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
+    public void socialListUpdater() {
+        StringBuffer userList = new StringBuffer();
+
+        DatabaseReference Users_ref_Data = db.getReference("Users");
+        Users_ref_Data.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    userList.append(snap.getValue(User.class).getName() + "\n");
+                }
+
+                TextView list = (TextView) findViewById(R.id.socialUserList);
+                list.setText(userList.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    public void addContent() {
+        DatabaseReference content = mData.child("Content");
+
+        String contentName = ((EditText) findViewById(R.id.addContentNameInput)).getText().toString().trim();
+        String contentDate = ((EditText) findViewById(R.id.addContentDateInput)).getText().toString().trim();
+        String contentType = ((EditText) findViewById(R.id.addContentTypeInput)).getText().toString().trim();
+        String contentDiscription = ((EditText) findViewById(R.id.addContentDiscriptionInput)).getText().toString().trim();
+
+        Content newContent = new Content(contentName, contentDate, contentType, contentDiscription);
+
+        content.push().get();
+
+        content.child(newContent.getName()).setValue(newContent);
+    }
+
+    public void contentListUpdater() {
+        StringBuffer userList = new StringBuffer();
+
+        DatabaseReference Users_ref_Data = db.getReference("Content");
+        Users_ref_Data.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    userList.append(snap.getValue(Content.class).getName() + "\n");
+                }
+                TextView list = ((TextView) findViewById(R.id.contentList));
+                list.setText(userList.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+}//end

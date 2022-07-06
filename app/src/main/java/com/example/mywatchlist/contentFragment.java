@@ -63,6 +63,8 @@ public class contentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_content,container, false);
         // Inflate the layout for this fragment
 
+        MainActivity main = (MainActivity)getActivity();
+
         //footer buttons:
         Button homeBtn = view.findViewById(R.id.contentFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.contentFooterProfileBtn);
@@ -79,6 +81,7 @@ public class contentFragment extends Fragment {
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.getMyUserData();
                 Navigation.findNavController(view).navigate(R.id.action_contentFragment_to_userProfileFragment);
             }
         });
@@ -86,6 +89,7 @@ public class contentFragment extends Fragment {
         socialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.socialListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_contentFragment_to_socialSearchFragment);
             }
         });
@@ -93,6 +97,7 @@ public class contentFragment extends Fragment {
         contentSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.contentListUpdater();
                 Navigation.findNavController(view).navigate(R.id.action_contentFragment_to_contentSearchFragment);
             }
         });

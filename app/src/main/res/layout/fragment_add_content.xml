@@ -70,11 +70,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#f2f2f2"
-            android:text="Discription"
+            android:text="Type:"
             android:textSize="20dp" />
 
         <EditText
             android:id="@+id/addContentTypeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:ems="10"
+            android:hint="Input Type here"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:textColorHint="#4d4d4d" />
+
+        <TextView
+            android:id="@+id/addContentDiscription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2f2f2"
+            android:text="Discription"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/addContentDiscriptionInput"
             android:layout_width="match_parent"
             android:layout_height="173dp"
             android:background="@drawable/edit_text_border"
