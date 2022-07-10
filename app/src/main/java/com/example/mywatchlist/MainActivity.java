@@ -23,6 +23,18 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
     public String mainUserName;
+    public User tmpUser;
+    userCallBack userCallBack = new userCallBack() {
+        @Override
+        public void setUser(User user) {
+            TextView name = ((TextView) findViewById(R.id.profileName));
+            TextView email = ((TextView) findViewById(R.id.profileEmail));
+            TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
+            name.setText("Name: " + user.getName());
+            email.setText("Mail: " + user.getMail());
+            number.setText("Phone number: " + user.getNumber());
+        }
+    };
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseDatabase db;
@@ -100,11 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void readUsersFromData() {
         DatabaseReference Users_ref_Data = db.getReference("Users");
-
-
         String searchName = ((EditText) findViewById(R.id.socialSearchBar)).getText().toString().trim();
-
-
         Users_ref_Data.child(searchName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -116,13 +124,21 @@ public class MainActivity extends AppCompatActivity {
 
                     if (task.getResult().exists()) {
 
-//                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
-                        TextView name = ((TextView) findViewById(R.id.profileName));
-                        TextView email = ((TextView) findViewById(R.id.profileEmail));
-                        TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
-                        name.setText("Name: " + user.getName());
-                        email.setText("Mail: " + user.getMail());
-                        number.setText("Phone number: " + user.getNumber());
+                        tmpUser = new User(user);
+
+
+
+//                        userProfileFragment userProfile = new userProfileFragment();
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("User",user.getName());
+//                        userProfile.setArguments(bundle);
+
+//                        TextView name = ((TextView) findViewById(R.id.profileName));
+//                        TextView email = ((TextView) findViewById(R.id.profileEmail));
+//                        TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
+//                        name.setText("Name: " + user.getName());
+//                        email.setText("Mail: " + user.getMail());
+//                        number.setText("Phone number: " + user.getNumber());
 
 
                     } else {
@@ -140,56 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
-    public void readContentFromData() {
-        DatabaseReference Content_ref_Data = db.getReference("Content");
-
-        String searchContentName = ((EditText) findViewById(R.id.contentSearchBar)).getText().toString().trim();
-
-        Content_ref_Data.child(searchContentName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                DataSnapshot dataSnapshot = task.getResult();
-                Content content = new Content(dataSnapshot.getValue(Content.class));
-
-                if (task.isSuccessful()) {
-
-                    if (task.getResult().exists()) {
-//                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
-                        TextView conetntName = ((TextView) findViewById(R.id.contentName));
-                        TextView contentDate = ((TextView) findViewById(R.id.contentDate));
-                        TextView contentType = ((TextView) findViewById(R.id.type));
-                        TextView contentNumLikes = ((TextView) findViewById(R.id.numberOfLikes));
-                        TextView contentDescription = ((TextView) findViewById(R.id.conetntDiscription));
-//                        TextView contentPosts = ((TextView) findViewById(R.id.contentPosts));
-                        conetntName.setText("Name: " + content.getName());
-                        contentDate.setText("Date of relese: " + content.getDateOfRelese());
-                        contentType.setText("Type: " + content.getType());
-                        contentNumLikes.setText("Number of likes: " + content.getNumOfLikes());
-                        contentDescription.setText(content.getDisciption());
-                        //contentPosts.setText((CharSequence) content.getPosts());
-
-
-                    } else {
-
-//                        Toast.makeText(MainActivity.this, "Content Doesn't Exist", Toast.LENGTH_LONG).show();
-
-                    }
-
-
-                } else {
-
-//                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-
-    }
-
 
     public void getMyUserData() {
         DatabaseReference Users_ref_Data = db.getReference("Users");
@@ -215,6 +182,54 @@ public class MainActivity extends AppCompatActivity {
                     } else {
 
 //                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_LONG).show();
+
+                    }
+
+
+                } else {
+
+//                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+    }
+
+    public void readContentFromData() {
+        DatabaseReference Content_ref_Data = db.getReference("Content");
+
+        String searchContentName = ((EditText) findViewById(R.id.contentSearchBar)).getText().toString().trim();
+
+        Content_ref_Data.child(searchContentName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                DataSnapshot dataSnapshot = task.getResult();
+                Content content = new Content(dataSnapshot.getValue(Content.class));
+
+                if (task.isSuccessful()) {
+
+                    if (task.getResult().exists()) {
+
+//                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
+                        TextView conetntName = ((TextView) findViewById(R.id.contentName));
+                        TextView contentDate = ((TextView) findViewById(R.id.contentDate));
+                        TextView contentType = ((TextView) findViewById(R.id.type));
+                        TextView contentNumLikes = ((TextView) findViewById(R.id.numberOfLikes));
+                        TextView contentDescription = ((TextView) findViewById(R.id.conetntDiscription));
+//                        TextView contentPosts = ((TextView) findViewById(R.id.contentPosts));
+                        conetntName.setText("Name: " + content.getName());
+                        contentDate.setText("Date of relese: " + content.getDateOfRelese());
+                        contentType.setText("Type: " + content.getType());
+                        contentNumLikes.setText("Number of likes: " + content.getNumOfLikes());
+                        contentDescription.setText(content.getDisciption());
+                        //contentPosts.setText((CharSequence) content.getPosts());
+
+
+                    } else {
+
+//                        Toast.makeText(MainActivity.this, "Content Doesn't Exist", Toast.LENGTH_LONG).show();
 
                     }
 

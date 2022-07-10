@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,6 +65,8 @@ public class contentFragment extends Fragment {
         // Inflate the layout for this fragment
 
         MainActivity main = (MainActivity)getActivity();
+
+
 
         //footer buttons:
         Button homeBtn = view.findViewById(R.id.contentFooterHomeBtn);

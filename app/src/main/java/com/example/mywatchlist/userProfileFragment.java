@@ -1,6 +1,7 @@
 package com.example.mywatchlist;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,6 @@ import androidx.navigation.Navigation;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,8 +21,10 @@ import com.google.firebase.database.DatabaseReference;
  */
 public class userProfileFragment extends Fragment {
 
+
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,13 +73,25 @@ public class userProfileFragment extends Fragment {
 
 //        mAuth = FirebaseAuth.getInstance();
 //        currentUser = mAuth.getCurrentUser();
+    Bundle bundle = getArguments();
+        Log.d("Bundle exists? ", "" + (bundle != null));
+        String userName = getArguments().getString("UserName");
+        String userEmail = getArguments().getString("UserEmail");
+        String userPhone = getArguments().getString("UserPhone");
+//        if(usr != null){
+//            User userProfile = (User) bundle.getParcelable("User");
+
+            TextView name = ((TextView) view.findViewById(R.id.profileName));
+            TextView email = ((TextView) view.findViewById(R.id.profileEmail));
+            TextView number = ((TextView) view.findViewById(R.id.profilePhoneNum));
+//            name.setText("Name: " + userProfile.getName());
+            name.setText("Name: " + userName);
+            email.setText("Mail: " + userEmail);
+            number.setText("Phone number: " + userPhone);
+//        }
 
 
         MainActivity main = (MainActivity)getActivity();
-
-
-
-
 
         Button homeBtn = view.findViewById(R.id.profleFooterHomeBtn);
         Button profileBtn = view.findViewById(R.id.profileFooterProfileBtn);

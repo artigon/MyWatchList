@@ -18,7 +18,10 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class socialSearchFragment extends Fragment {
-
+    userCallBack tmp;
+    public void setUserCallBack(userCallBack userCallBack){
+        this.tmp = userCallBack;
+    }
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -94,6 +97,7 @@ public class socialSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 main.contentListUpdater();
+
                 Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
             }
         });
@@ -107,10 +111,15 @@ public class socialSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 MainActivity main = (MainActivity) getActivity();
-                main.readUsersFromData();
-                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
+                Bundle b = new Bundle();
+                User user = new User();
+                tmp.setUser(user);
+
+
+                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment,b);
             }
         });
+
 
 
 

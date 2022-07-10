@@ -1,5 +1,7 @@
 package com.example.mywatchlist;
 
+import android.os.Parcel;
+
 public class User {
     private String name;
     private String mail;
