@@ -66,6 +66,8 @@ public class contentSearchFragment extends Fragment {
 
         MainActivity main = (MainActivity) getActivity();
 
+        main.contentListUpdater();
+
         Button searchBtn = view.findViewById(R.id.contentSearchBtn);
         Button addContentBtn = (Button)view.findViewById(R.id.addNewContentBtn);
 

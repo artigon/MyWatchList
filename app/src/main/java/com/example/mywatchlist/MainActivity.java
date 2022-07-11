@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 profilePick = true;
-                getMyUserData();
+//                getMyUserData();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, userProfileFragment.class, null)
                         .setReorderingAllowed(true)
