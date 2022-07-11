@@ -90,7 +90,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="252dp"
+        android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:background="@drawable/edit_text_border">
 
@@ -102,86 +102,5 @@
             android:text="test\ntest\ntest\ntest\ntest\ntest\XXXXXXXXXXXXXXXXXXntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\nXXXXXXXXXXXXXXXXX test\ntest\nXXXXXXXXXXXXXXXX\ntest\ntest\ntest\ntest\ntest"
             android:textSize="20dp" />
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/profileFooter"
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/profleFooterHomeBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Home"
-            android:textColor="@color/white"
-            android:drawableTop="@drawable/icon_home"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/button_style"
-            android:textSize="17sp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="25dp"
-            android:paddingEnd="25dp"
-            android:focusable="true"
-            android:textAllCaps="false"
-
-            />
-
-        <Button
-            android:id="@+id/profileFooterProfileBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Profile"
-            android:textColor="@color/black"
-            android:drawableTop="@drawable/icon_profile_in_page"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/button_style"
-            android:textSize="17sp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="25dp"
-            android:paddingEnd="25dp"
-            android:focusable="true"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/profileFooterSocialBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Social"
-            android:textColor="@color/white"
-            android:drawableTop="@drawable/icon_social"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/button_style"
-            android:textSize="17sp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="25dp"
-            android:paddingEnd="25dp"
-            android:focusable="true"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/profileFooterContentBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Content"
-            android:textColor="@color/white"
-            android:drawableTop="@drawable/icon_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/button_style"
-            android:textSize="15sp"
-            android:paddingTop="1dp"
-            android:paddingBottom="20dp"
-            android:paddingStart="25dp"
-            android:paddingEnd="25dp"
-            android:focusable="true"
-            android:textAllCaps="false" />
-    </LinearLayout>
 
 </LinearLayout>

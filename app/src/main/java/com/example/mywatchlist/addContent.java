@@ -3,6 +3,7 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -66,19 +67,31 @@ public class addContent extends Fragment {
         Button cancelBtn = view.findViewById(R.id.addContentCancel);
         Button submitBtn = view.findViewById(R.id.addContentSubmitBtn);
 
+        MainActivity main = (MainActivity) getActivity();
+
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_addContent_to_contentSearchFragment);
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, contentSearchFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
             }
         });
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity main = (MainActivity) getActivity();
+
                 main.addContent();
-                Navigation.findNavController(view).navigate(R.id.action_addContent_to_contentSearchFragment);
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, contentSearchFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
             }
         });
 

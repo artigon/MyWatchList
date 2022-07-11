@@ -2,11 +2,14 @@ package com.example.mywatchlist;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,6 +48,69 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Fotter:
+        Button homeBtn = findViewById(R.id.mainFooterHomeBtn);
+        Button profileBtn = findViewById(R.id.mainFooterProfileBtn);
+        Button socialBtn = findViewById(R.id.mainFooterSocialBtn);
+        Button contentBtn = findViewById(R.id.mainFooterContentBtn);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, homeFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
+
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getMyUserData();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, userProfileFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
+
+            }
+        });
+
+        socialBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                socialListUpdater();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, socialSearchFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
+            }
+        });
+
+        contentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                contentListUpdater();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, contentSearchFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
+            }
+        });
+
+
+
+
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         mData = db.getReference();
@@ -66,8 +132,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 //                            Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_LONG).show();
-
-                            Navigation.findNavController(view).navigate(R.id.action_logInFragment_to_homeFragment);
+                            FragmentManager fragmentManager = getSupportFragmentManager();
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.fragmentContainerView, homeFragment.class, null)
+                                    .setReorderingAllowed(true)
+                                    .addToBackStack("") // name can be null
+                                    .commit();
 
 
                         } else {
@@ -96,7 +166,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 //                            Toast.makeText(MainActivity.this, "Registered Successful", Toast.LENGTH_LONG).show();
-                            Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_homeFragment);
+                            FragmentManager fragmentManager = getSupportFragmentManager();
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.fragmentContainerView, homeFragment.class, null)
+                                    .setReorderingAllowed(true)
+                                    .addToBackStack("") // name can be null
+                                    .commit();
                             mAuth.signInWithEmailAndPassword(email, password);
                             currentUser = mAuth.getCurrentUser();
                             users.child(tmpUser.getName()).setValue(tmpUser);
@@ -133,12 +208,12 @@ public class MainActivity extends AppCompatActivity {
 //                        bundle.putString("User",user.getName());
 //                        userProfile.setArguments(bundle);
 
-//                        TextView name = ((TextView) findViewById(R.id.profileName));
-//                        TextView email = ((TextView) findViewById(R.id.profileEmail));
-//                        TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
-//                        name.setText("Name: " + user.getName());
-//                        email.setText("Mail: " + user.getMail());
-//                        number.setText("Phone number: " + user.getNumber());
+                        TextView name = ((TextView) findViewById(R.id.profileName));
+                        TextView email = ((TextView) findViewById(R.id.profileEmail));
+                        TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
+                        name.setText("Name: " + user.getName());
+                        email.setText("Mail: " + user.getMail());
+                        number.setText("Phone number: " + user.getNumber());
 
 
                     } else {

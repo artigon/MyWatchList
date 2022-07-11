@@ -3,6 +3,7 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,12 @@ public class registerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 main.registerFunc(view);
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, homeFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
             }
         });
 

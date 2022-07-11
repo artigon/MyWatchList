@@ -73,61 +73,26 @@ public class userProfileFragment extends Fragment {
 
 //        mAuth = FirebaseAuth.getInstance();
 //        currentUser = mAuth.getCurrentUser();
-    Bundle bundle = getArguments();
-        Log.d("Bundle exists? ", "" + (bundle != null));
-        String userName = getArguments().getString("UserName");
-        String userEmail = getArguments().getString("UserEmail");
-        String userPhone = getArguments().getString("UserPhone");
+//    Bundle bundle = getArguments();
+//        Log.d("Bundle exists? ", "" + (bundle != null));
+//        String userName = getArguments().getString("UserName");
+//        String userEmail = getArguments().getString("UserEmail");
+//        String userPhone = getArguments().getString("UserPhone");
 //        if(usr != null){
 //            User userProfile = (User) bundle.getParcelable("User");
-
-            TextView name = ((TextView) view.findViewById(R.id.profileName));
-            TextView email = ((TextView) view.findViewById(R.id.profileEmail));
-            TextView number = ((TextView) view.findViewById(R.id.profilePhoneNum));
+//
+//            TextView name = ((TextView) view.findViewById(R.id.profileName));
+//            TextView email = ((TextView) view.findViewById(R.id.profileEmail));
+//            TextView number = ((TextView) view.findViewById(R.id.profilePhoneNum));
 //            name.setText("Name: " + userProfile.getName());
-            name.setText("Name: " + userName);
-            email.setText("Mail: " + userEmail);
-            number.setText("Phone number: " + userPhone);
+//            name.setText("Name: " + userName);
+//            email.setText("Mail: " + userEmail);
+//            number.setText("Phone number: " + userPhone);
 //        }
 
 
         MainActivity main = (MainActivity)getActivity();
 
-        Button homeBtn = view.findViewById(R.id.profleFooterHomeBtn);
-        Button profileBtn = view.findViewById(R.id.profileFooterProfileBtn);
-        Button socialbtn = view.findViewById(R.id.profileFooterSocialBtn);
-        Button contentBtn = view.findViewById(R.id.profileFooterContentBtn);
-
-        profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity main = (MainActivity) getActivity();
-                main.getMyUserData();
-            }
-        });
-
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_homeFragment);
-            }
-        });
-
-        socialbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.socialListUpdater();
-                Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_socialSearchFragment);
-            }
-        });
-
-        contentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.contentListUpdater();
-                Navigation.findNavController(view).navigate(R.id.action_userProfileFragment_to_contentSearchFragment);
-            }
-        });
 
         return view;
     }

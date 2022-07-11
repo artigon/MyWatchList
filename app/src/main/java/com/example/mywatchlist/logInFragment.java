@@ -3,6 +3,7 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -70,6 +71,12 @@ public class logInFragment extends Fragment {
             public void onClick(View view) {
                 MainActivity main = (MainActivity) getActivity();
                 main.loginFunc(view);
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, homeFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
             }
         });
 

@@ -65,49 +65,6 @@ public class homeFragment extends Fragment {
 
         MainActivity main = (MainActivity) getActivity();
 
-
-
-
-
-        Button homeBtn = view.findViewById(R.id.homeFooterHomeBtn);
-        Button profileBtn = view.findViewById(R.id.homeFooterProfileBtn);
-        Button socialBtn = view.findViewById(R.id.homeFooterSocialBtn);
-        Button contentBtn = view.findViewById(R.id.homeFooterContentBtn);
-
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                main.getMyUserData();
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_userProfileFragment);
-
-            }
-        });
-
-        socialBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.socialListUpdater();
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_socialSearchFragment);
-            }
-        });
-
-        contentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.contentListUpdater();
-                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_contentSearchFragment);
-            }
-        });
-
-
         return view;
     }
 }

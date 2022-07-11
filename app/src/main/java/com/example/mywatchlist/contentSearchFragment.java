@@ -3,6 +3,7 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -65,36 +66,8 @@ public class contentSearchFragment extends Fragment {
 
         MainActivity main = (MainActivity) getActivity();
 
-        //footer buttons:
-        Button homeBtn = view.findViewById(R.id.contentSearchFooterHomeBtn);
-        Button profileBtn = view.findViewById(R.id.contentSearchFooterProfileBtn);
-        Button socialBtn = view.findViewById(R.id.contentSearchFooterSocialBtn);
         Button searchBtn = view.findViewById(R.id.contentSearchBtn);
         Button addContentBtn = (Button)view.findViewById(R.id.addNewContentBtn);
-
-
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_homeFragment);
-            }
-        });
-
-        profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.getMyUserData();
-                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_userProfileFragment);
-            }
-        });
-
-        socialBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.socialListUpdater();
-                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_socialSearchFragment);
-            }
-        });
 
 
 
@@ -103,7 +76,12 @@ public class contentSearchFragment extends Fragment {
             public void onClick(View view) {
 
                 main.readContentFromData();
-                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_contentFragment);
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, contentFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
 
             }
         });
@@ -111,9 +89,12 @@ public class contentSearchFragment extends Fragment {
         addContentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("test from content search");
-                Navigation.findNavController(view).navigate(R.id.action_contentSearchFragment_to_addContent);
-                System.out.println("test from content search 2");
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, addContent.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
             }
         });
 

@@ -3,6 +3,7 @@ package com.example.mywatchlist;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -72,37 +73,6 @@ public class socialSearchFragment extends Fragment {
         MainActivity main =(MainActivity) getActivity();
 
 
-        //footer buttons:
-        Button homeBtn = view.findViewById(R.id.socialSearchFooterHomeBtn);
-        Button profileBtn = view.findViewById(R.id.socialSearchFooterProfileBtn);
-        Button socialBtn = view.findViewById(R.id.socialSearchFooterSocialBtn);
-        Button contentBtn = view.findViewById(R.id.socialSearchFooterContentBtn);
-
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_homeFragment);
-            }
-        });
-
-        profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.getMyUserData();
-                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
-            }
-        });
-
-        contentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                main.contentListUpdater();
-
-                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment);
-            }
-        });
-
-
         Button socialSearchBtn = view.findViewById(R.id.theSocialSearchBtn);
 //        String searchName =((EditText)view.findViewById(R.id.socialSearchBar)).getText().toString().trim();
 
@@ -110,13 +80,20 @@ public class socialSearchFragment extends Fragment {
         socialSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity main = (MainActivity) getActivity();
-                Bundle b = new Bundle();
-                User user = new User();
-                tmp.setUser(user);
+//                MainActivity main = (MainActivity) getActivity();
+//                Bundle b = new Bundle();
+//                User user = new User();
+//                tmp.setUser(user);
+                main.readUsersFromData();
+                FragmentManager fragmentManager = main.getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainerView, userProfileFragment.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("") // name can be null
+                        .commit();
 
 
-                Navigation.findNavController(view).navigate(R.id.action_socialSearchFragment_to_userProfileFragment,b);
+
             }
         });
 
