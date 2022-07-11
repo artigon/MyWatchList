@@ -27,6 +27,10 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
     public String mainUserName;
     public User tmpUser;
+    public String searchUser;
+    public String searchContent;
+    public Boolean profilePick;
+
     userCallBack userCallBack = new userCallBack() {
         @Override
         public void setUser(User user) {
@@ -73,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                profilePick = true;
                 getMyUserData();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, userProfileFragment.class, null)
@@ -86,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         socialBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                socialListUpdater();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, socialSearchFragment.class, null)
                         .setReorderingAllowed(true)
@@ -188,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
     public void readUsersFromData() {
         DatabaseReference Users_ref_Data = db.getReference("Users");
         String searchName = ((EditText) findViewById(R.id.socialSearchBar)).getText().toString().trim();
+//        String searchName = searchUser;
         Users_ref_Data.child(searchName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {

@@ -93,6 +93,14 @@ public class userProfileFragment extends Fragment {
 
         MainActivity main = (MainActivity)getActivity();
 
+        if(main.profilePick)
+        {
+            main.getMyUserData();
+        }
+        else
+        {
+            main.readUsersFromData();
+        }
 
         return view;
     }

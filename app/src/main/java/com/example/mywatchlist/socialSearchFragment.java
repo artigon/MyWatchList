@@ -70,7 +70,11 @@ public class socialSearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_social_search,container, false);
         // Inflate the layout for this fragment
 
+
         MainActivity main =(MainActivity) getActivity();
+
+        main.socialListUpdater();
+
 
 
         Button socialSearchBtn = view.findViewById(R.id.theSocialSearchBtn);
@@ -84,7 +88,9 @@ public class socialSearchFragment extends Fragment {
 //                Bundle b = new Bundle();
 //                User user = new User();
 //                tmp.setUser(user);
-                main.readUsersFromData();
+
+//                main.searchUser =  ((EditText) view.findViewById(R.id.socialSearchBar)).getText().toString().trim();
+                main.profilePick = false;
                 FragmentManager fragmentManager = main.getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, userProfileFragment.class, null)
