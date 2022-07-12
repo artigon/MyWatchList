@@ -64,7 +64,7 @@ public class homeFragment extends Fragment {
         // Inflate the layout for this fragment
 
         MainActivity main = (MainActivity) getActivity();
-
+        main.homeBtnSetColor();
         return view;
     }
 }

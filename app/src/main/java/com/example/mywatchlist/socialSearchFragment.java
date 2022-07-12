@@ -74,8 +74,7 @@ public class socialSearchFragment extends Fragment {
         MainActivity main =(MainActivity) getActivity();
 
         main.socialListUpdater();
-
-
+        main.socialBtnSetColor();
 
         Button socialSearchBtn = view.findViewById(R.id.theSocialSearchBtn);
 //        String searchName =((EditText)view.findViewById(R.id.socialSearchBar)).getText().toString().trim();

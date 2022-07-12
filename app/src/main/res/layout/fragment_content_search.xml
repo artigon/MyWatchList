@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".contentSearchFragment" >
+    tools:context=".contentSearchFragment">
 
     <TextView
         android:id="@+id/contentSearchTitle"
@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:background="@drawable/button_style"
         android:text="Add new content"
-        android:textColor="@color/white"
-        android:background="@drawable/button_style"/>
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,29 +34,28 @@
             android:id="@+id/contentSearchBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Search for content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:background="@drawable/edit_text_border"
             android:ems="13"
+            android:hint="Search for content"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="10dp"
-            android:textColorHint="#4d4d4d"
-            />
+            android:textColorHint="#4d4d4d" />
 
-            />
+        />
 
         <Button
             android:id="@+id/contentSearchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginRight="5dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:layout_weight="1"
             android:background="@drawable/button_style"
-            android:text="Search" />
+            android:text="Search"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
     </LinearLayout>
 

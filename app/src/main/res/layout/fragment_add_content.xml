@@ -76,12 +76,12 @@
         <EditText
             android:id="@+id/addContentDiscriptionInput"
             android:layout_width="match_parent"
-            android:layout_height="173dp"
+            android:layout_height="match_parent"
             android:background="@drawable/edit_text_border"
-            android:ems="10"
             android:hint="Input discription here"
             android:inputType="textPersonName"
-            android:padding="10dp"
+            android:gravity="start"
+            android:paddingLeft="10dp"
             android:textColorHint="#4d4d4d" />
     </LinearLayout>
 
@@ -94,6 +94,7 @@
         android:padding="15dp">
 
         <Button
+            android:background="@drawable/button_style"
             android:id="@+id/addContentCancel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -103,6 +104,7 @@
             android:textSize="20dp" />
 
         <Button
+            android:background="@drawable/button_style"
             android:id="@+id/addContentSubmitBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

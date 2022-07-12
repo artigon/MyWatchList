@@ -65,7 +65,6 @@ public class contentFragment extends Fragment {
         // Inflate the layout for this fragment
 
         MainActivity main = (MainActivity)getActivity();
-        
 
         return view;
     }

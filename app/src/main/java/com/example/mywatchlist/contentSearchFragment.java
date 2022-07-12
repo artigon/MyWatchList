@@ -67,6 +67,7 @@ public class contentSearchFragment extends Fragment {
         MainActivity main = (MainActivity) getActivity();
 
         main.contentListUpdater();
+        main.contentBtnSetColor();
 
         Button searchBtn = view.findViewById(R.id.contentSearchBtn);
         Button addContentBtn = (Button)view.findViewById(R.id.addNewContentBtn);

@@ -71,6 +71,7 @@ public class registerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 main.registerFunc(view);
+                main.footerVisabillity();
                 FragmentManager fragmentManager = main.getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, homeFragment.class, null)

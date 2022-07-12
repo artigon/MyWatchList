@@ -92,6 +92,7 @@ public class userProfileFragment extends Fragment {
 
 
         MainActivity main = (MainActivity)getActivity();
+        main.profileBtnSetColor();
 
         if(main.profilePick)
         {

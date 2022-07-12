@@ -1,6 +1,10 @@
 package com.example.mywatchlist;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,14 +57,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Fotter:
+        View footer = findViewById(R.id.mainFooter);
+        footer.setVisibility(View.GONE);
+
         Button homeBtn = findViewById(R.id.mainFooterHomeBtn);
         Button profileBtn = findViewById(R.id.mainFooterProfileBtn);
         Button socialBtn = findViewById(R.id.mainFooterSocialBtn);
         Button contentBtn = findViewById(R.id.mainFooterContentBtn);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-
-
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,19 +116,95 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         mData = db.getReference();
+    }
 
+    public void footerVisabillity() {
+        View footer = findViewById(R.id.mainFooter);
+        footer.setVisibility(View.VISIBLE);
+    }
+
+    public void homeBtnSetColor() {
+        Button homeBtn = findViewById(R.id.mainFooterHomeBtn);
+        Button profileBtn = findViewById(R.id.mainFooterProfileBtn);
+        Button socialBtn = findViewById(R.id.mainFooterSocialBtn);
+        Button contentBtn = findViewById(R.id.mainFooterContentBtn);
+
+        homeBtn.setTextColor(getApplication().getResources().getColor(R.color.black)); //TAKE DEFAULT COLOR
+        homeBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_home_in_page, 0, 0);
+
+        profileBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        profileBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_profile, 0, 0);
+
+        socialBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        socialBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_social, 0, 0);
+
+        contentBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        contentBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_content, 0, 0);
 
     }
 
-    public void loginFunc(View view) {
+    public void profileBtnSetColor() {
+        Button homeBtn = findViewById(R.id.mainFooterHomeBtn);
+        Button profileBtn = findViewById(R.id.mainFooterProfileBtn);
+        Button socialBtn = findViewById(R.id.mainFooterSocialBtn);
+        Button contentBtn = findViewById(R.id.mainFooterContentBtn);
 
+        homeBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        homeBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_home, 0, 0);
+
+        profileBtn.setTextColor(getApplication().getResources().getColor(R.color.black)); //TAKE DEFAULT COLOR
+        profileBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_profile_in_page, 0, 0);
+
+        socialBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        socialBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_social, 0, 0);
+
+        contentBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        contentBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_content, 0, 0);
+    }
+
+    public void socialBtnSetColor() {
+        Button homeBtn = findViewById(R.id.mainFooterHomeBtn);
+        Button profileBtn = findViewById(R.id.mainFooterProfileBtn);
+        Button socialBtn = findViewById(R.id.mainFooterSocialBtn);
+        Button contentBtn = findViewById(R.id.mainFooterContentBtn);
+
+        homeBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        homeBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_home, 0, 0);
+
+        profileBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        profileBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_profile, 0, 0);
+
+        socialBtn.setTextColor(getApplication().getResources().getColor(R.color.black)); //TAKE DEFAULT COLOR
+        socialBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_social_in_page, 0, 0);
+
+        contentBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        contentBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_content, 0, 0);
+
+    }
+
+    public void contentBtnSetColor() {
+        Button homeBtn = findViewById(R.id.mainFooterHomeBtn);
+        Button profileBtn = findViewById(R.id.mainFooterProfileBtn);
+        Button socialBtn = findViewById(R.id.mainFooterSocialBtn);
+        Button contentBtn = findViewById(R.id.mainFooterContentBtn);
+
+        homeBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        homeBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_home, 0, 0);
+
+        profileBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        profileBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_profile, 0, 0);
+
+        socialBtn.setTextColor(getApplication().getResources().getColor(R.color.white)); //TAKE DEFAULT COLOR
+        socialBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_social, 0, 0);
+
+        contentBtn.setTextColor(getApplication().getResources().getColor(R.color.black)); //TAKE DEFAULT COLOR
+        contentBtn.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.icon_content_in_page, 0, 0);
+    }
+
+    public void loginFunc(View view) {
         String userName = ((EditText) findViewById(R.id.logInUserInput)).getText().toString().trim();
         mainUserName = userName;
 
@@ -142,12 +223,9 @@ public class MainActivity extends AppCompatActivity {
                                     .setReorderingAllowed(true)
                                     .addToBackStack("") // name can be null
                                     .commit();
-
-
                         } else {
 //                            Toast.makeText(MainActivity.this, "Failed to login", Toast.LENGTH_LONG).show();
                         }
-
                     }
                 });
     }
@@ -207,7 +285,6 @@ public class MainActivity extends AppCompatActivity {
                         tmpUser = new User(user);
 
 
-
 //                        userProfileFragment userProfile = new userProfileFragment();
 //                        Bundle bundle = new Bundle();
 //                        bundle.putString("User",user.getName());
@@ -224,9 +301,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
 
 //                        Toast.makeText(MainActivity.this, "User Doesn't Exist", Toast.LENGTH_LONG).show();
-
                     }
-
 
                 } else {
 
@@ -235,7 +310,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     public void getMyUserData() {
@@ -381,7 +455,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
-
 }//end

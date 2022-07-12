@@ -71,6 +71,7 @@ public class logInFragment extends Fragment {
             public void onClick(View view) {
                 MainActivity main = (MainActivity) getActivity();
                 main.loginFunc(view);
+                main.footerVisabillity();
                 FragmentManager fragmentManager = main.getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, homeFragment.class, null)
