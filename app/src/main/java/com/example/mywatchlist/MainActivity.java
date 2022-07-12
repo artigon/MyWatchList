@@ -28,24 +28,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Vector;
+
 public class MainActivity extends AppCompatActivity {
     public String mainUserName;
     public User tmpUser;
     public String searchUser;
     public String searchContent;
     public Boolean profilePick;
+    public Content curentContent;
 
-    userCallBack userCallBack = new userCallBack() {
-        @Override
-        public void setUser(User user) {
-            TextView name = ((TextView) findViewById(R.id.profileName));
-            TextView email = ((TextView) findViewById(R.id.profileEmail));
-            TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
-            name.setText("Name: " + user.getName());
-            email.setText("Mail: " + user.getMail());
-            number.setText("Phone number: " + user.getNumber());
-        }
-    };
+//    userCallBack userCallBack = new userCallBack() {
+//        @Override
+//        public void setUser(User user) {
+//            TextView name = ((TextView) findViewById(R.id.profileName));
+//            TextView email = ((TextView) findViewById(R.id.profileEmail));
+//            TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
+//            name.setText("Name: " + user.getName());
+//            email.setText("Mail: " + user.getMail());
+//            number.setText("Phone number: " + user.getNumber());
+//        }
+//    };
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private FirebaseDatabase db;
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        curentContent = new Content();
 
         //Fotter:
         View footer = findViewById(R.id.mainFooter);
@@ -295,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
                         TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
                         name.setText("Name: " + user.getName());
                         email.setText("Mail: " + user.getMail());
-                        number.setText("Phone number: " + user.getNumber());
+                        number.setText("Phone Number: " + user.getNumber());
 
 
                     } else {
@@ -330,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
                         TextView number = ((TextView) findViewById(R.id.profilePhoneNum));
                         name.setText("Name: " + user.getName());
                         email.setText("Mail: " + user.getMail());
-                        number.setText("Phone number: " + user.getNumber());
+                        number.setText("Phone Number: " + user.getNumber());
 
 
                     } else {
@@ -361,24 +366,21 @@ public class MainActivity extends AppCompatActivity {
 
                 DataSnapshot dataSnapshot = task.getResult();
                 Content content = new Content(dataSnapshot.getValue(Content.class));
+                getContentUserListFromDataBase(content.getName(),content);
+                copyContentToCurent(content);
 
                 if (task.isSuccessful()) {
 
                     if (task.getResult().exists()) {
-
 //                        Toast.makeText(MainActivity.this, "Successfully Read", Toast.LENGTH_LONG).show();
                         TextView conetntName = ((TextView) findViewById(R.id.contentName));
                         TextView contentDate = ((TextView) findViewById(R.id.contentDate));
-                        TextView contentType = ((TextView) findViewById(R.id.type));
                         TextView contentNumLikes = ((TextView) findViewById(R.id.numberOfLikes));
                         TextView contentDescription = ((TextView) findViewById(R.id.conetntDiscription));
-//                        TextView contentPosts = ((TextView) findViewById(R.id.contentPosts));
                         conetntName.setText("Name: " + content.getName());
                         contentDate.setText("Date of relese: " + content.getDateOfRelese());
-                        contentType.setText("Type: " + content.getType());
                         contentNumLikes.setText("Number of likes: " + content.getNumOfLikes());
                         contentDescription.setText(content.getDisciption());
-                        //contentPosts.setText((CharSequence) content.getPosts());
 
 
                     } else {
@@ -396,6 +398,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void copyContentToCurent(Content tmpContent){
+        System.out.println("test");
+        curentContent = new Content();
+        curentContent.setName(tmpContent.getName());
+        curentContent.setDateOfRelese(tmpContent.getDateOfRelese());
+        curentContent.setDisciption(tmpContent.getDisciption());
+        curentContent.setNumOfLikes(tmpContent.getNumOfLikes());
+        curentContent.copyUserList(tmpContent.getUsersThatLiked());
+    }
+
+    public void getContentUserListFromDataBase(String path,Content tmpContent) {
+        Vector<String> tmp = new Vector<String>();
+
+        DatabaseReference Users_ref_Data = db.getReference("Content").child(path).child("userList");
+        Users_ref_Data.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    tmp.add(snap.getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        tmpContent.copyUserList(tmp);
     }
 
     public void socialListUpdater() {
@@ -426,14 +458,26 @@ public class MainActivity extends AppCompatActivity {
 
         String contentName = ((EditText) findViewById(R.id.addContentNameInput)).getText().toString().trim();
         String contentDate = ((EditText) findViewById(R.id.addContentDateInput)).getText().toString().trim();
-        String contentType = ((EditText) findViewById(R.id.addContentDiscriptionInput)).getText().toString().trim();
         String contentDiscription = ((EditText) findViewById(R.id.addContentDiscriptionInput)).getText().toString().trim();
 
-        Content newContent = new Content(contentName, contentDate, contentType, contentDiscription);
+        Content newContent = new Content(contentName, contentDate, contentDiscription);
 
         content.push().get();
 
         content.child(newContent.getName()).setValue(newContent);
+
+        DatabaseReference contentLikes = mData.child("Content").child(newContent.getName()).child("userList");
+        contentLikes.child("userList").setValue("");
+
+
+    }
+    public void updateContent() {
+        DatabaseReference content = mData.child("Content").child(curentContent.getName());
+        content.child("number of likes").setValue(curentContent.getNumOfLikes());
+        for(int i = 0; i< curentContent.getUsersThatLiked().size(); i++){
+            content.child("usersList").setValue(curentContent.getUsersThatLiked().elementAt(i));
+        }
+
     }
 
     public void contentListUpdater() {
@@ -456,4 +500,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void showCurentContentLikes() {
+        TextView numLikes = (TextView) findViewById(R.id.numberOfLikes);
+        numLikes.setText("Number of likes: " + curentContent.getNumOfLikes());
+    }
+
+
 }//end

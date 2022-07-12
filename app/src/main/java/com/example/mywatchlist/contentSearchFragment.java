@@ -78,7 +78,7 @@ public class contentSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                main.readContentFromData();
+//                main.readContentFromData();
                 FragmentManager fragmentManager = main.getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, contentFragment.class, null)

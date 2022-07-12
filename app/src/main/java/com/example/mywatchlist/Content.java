@@ -5,44 +5,70 @@ import java.util.Vector;
 public class Content {
     private String name;
     private String dateOfRelese;
-    private String type;
     private int numOfLikes;
     private String disciption;
     private Vector<String> usersThatLiked;
-    private Vector<String> posts;
     //put here vector for posts
 
 
-    public Content(String name, String dateOfRelese, String type, String disciption) {
+    public Content(String name, String dateOfRelese, String disciption) {
         this.name = name;
         this.dateOfRelese = dateOfRelese;
-        this.type = type;
         this.numOfLikes = 0;
         this.disciption = disciption;
         this.usersThatLiked = new Vector<String>();
-        this.posts = new Vector<String>();
     }
 
-    public Content(){};
+    public Content() {
+        this.usersThatLiked = new Vector<String>();
+    }
 
-    public Content(Content tmpContent){
+
+
+    public Content(Content tmpContent) {
         this.name = tmpContent.getName();
         this.dateOfRelese = tmpContent.getDateOfRelese();
-        this.type = tmpContent.getType();
         this.numOfLikes = tmpContent.getNumOfLikes();
         this.disciption = tmpContent.getDisciption();
-        this.usersThatLiked = tmpContent.getUsersThatLiked();
-        this.posts = tmpContent.getPosts();
-//        for(int i = 0; i < tmpContent.getUsersThatLiked().size(); i++)
-//            this.usersThatLiked.elementAt(i) = tmpContent.getUsersThatLiked().elementAt(i);
+        this.usersThatLiked = new Vector<String>();
     }
 
-    public Vector<String> getPosts() {
-        return posts;
+    public void copyUserList(Vector<String> tmp){
+        if(tmp.size() != 0) {
+            for (int i = 0; i < tmp.size(); i++)
+                this.usersThatLiked.add(tmp.elementAt(i));
+        }
     }
 
-    public void setPosts(Vector<String> posts) {
-        this.posts = posts;
+    public void addLike() {
+        this.numOfLikes++;
+    }
+
+    public void takeLike() {
+        this.numOfLikes--;
+    }
+
+    public boolean userThatLikesCheckList(String name) {
+        if (this.usersThatLiked.size() != 0) {
+            for (int i = 0; i < this.usersThatLiked.size(); i++) {
+                if (this.usersThatLiked.elementAt(i).equals(name))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public void addUserToList(String name) {
+        this.usersThatLiked.add(name);
+    }
+
+    public void deleteUserFromList(String name) {
+        for (int i = 0; i < this.usersThatLiked.size(); i++) {
+            if (this.usersThatLiked.elementAt(i).equals(name)) {
+                this.usersThatLiked.remove(i);
+                break;
+            }
+        }
     }
 
     public String getName() {
@@ -59,14 +85,6 @@ public class Content {
 
     public void setDateOfRelese(String dateOfRelese) {
         this.dateOfRelese = dateOfRelese;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getNumOfLikes() {
@@ -93,7 +111,7 @@ public class Content {
         this.usersThatLiked = usersThatLiked;
     }
 
-    public void addUserThatLiked(String tmpName){
+    public void addUserThatLiked(String tmpName) {
         this.usersThatLiked.add(tmpName);
     }
 }

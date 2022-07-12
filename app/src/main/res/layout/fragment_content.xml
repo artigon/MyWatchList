@@ -48,19 +48,6 @@
             android:textSize="25dp"
             android:textStyle="italic" />
 
-        <TextView
-            android:id="@+id/type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/white"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="Type:"
-            android:textSize="25dp"
-            android:textStyle="italic" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -112,7 +99,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:background="@drawable/edit_text_border">
 
